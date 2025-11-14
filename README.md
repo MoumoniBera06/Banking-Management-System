@@ -13,37 +13,29 @@ This project implements the fundamental operations of a banking system with secu
 - IntelliJ / Eclipse	IDE (any works)
 
 ## 📌 Features
-🔐 User Management
+### 🔐 User Management
 
-Register new users
+- Register new users
+- Login using email & password
+- Validates duplicate accounts
 
-Login using email & password
+### 🏦 Account Operations
 
-Validates duplicate accounts
+- Open a new bank account
+- Auto-generated unique account number
+- Stores full name, balance, and 4-digit PIN
 
-🏦 Account Operations
+### 💸 Banking Transactions
 
-Open a new bank account
+- Credit money
+- Debit money with insufficient balance protection
+- Transfer between accounts
+- PIN validation for every transaction
+- Uses SQL transactions (commit, rollback) to ensure accuracy
 
-Auto-generated unique account number
+### 💰 Balance Inquiry
 
-Stores full name, balance, and 4-digit PIN
-
-💸 Banking Transactions
-
-Credit money
-
-Debit money with insufficient balance protection
-
-Transfer between accounts
-
-PIN validation for every transaction
-
-Uses SQL transactions (commit, rollback) to ensure accuracy
-
-💰 Balance Inquiry
-
-Fetch and display current balance securely
+- Fetch and display current balance securely
 
 ## 📁 Project Structure
 ```
@@ -55,12 +47,15 @@ src/
     └── User.java                # User register and login
 ```
 
-🗄️ Database Setup
-Create Database
+## 🗄️ Database Setup
+
+#### Create Database
+```
 CREATE DATABASE banking_system;
 USE banking_system;
-
-accounts Table
+```
+#### accounts Table
+```
 CREATE TABLE accounts (
     account_number BIGINT PRIMARY KEY,
     full_name VARCHAR(255) NOT NULL,
@@ -68,51 +63,51 @@ CREATE TABLE accounts (
     balance DECIMAL(10,2) NOT NULL,
     security_pin CHAR(4) NOT NULL
 );
-
-user Table
+```
+#### user Table
+```
 CREATE TABLE user (
     full_name VARCHAR(255) NOT NULL,
     email VARCHAR(255) PRIMARY KEY,
     password VARCHAR(255) NOT NULL
 );
+```
+## ▶️ How to Run
 
-▶️ How to Run
-1️⃣ Clone the repository
+### 1️⃣ Clone the repository
+```
 git clone https://github.com/your-username/Banking-Management-System.git
 cd Banking-Management-System
-
-2️⃣ Add MySQL Connector/J
+```
+### 2️⃣ Add MySQL Connector/J
 
 Download: https://dev.mysql.com/downloads/connector/j/
-
 Add the .jar to your project:
+- IntelliJ → File → Project Structure → Modules → Dependencies → + → JAR
+- Eclipse → Right-click Project → Build Path → Add External JARs
 
-IntelliJ →
-File → Project Structure → Modules → Dependencies → + → JAR
+### 3️⃣ Update MySQL credentials
 
-Eclipse →
-Right-click Project → Build Path → Add External JARs
-
-3️⃣ Update MySQL credentials
-
-In BankingApp.java:
-
+In ```BankingApp.java```:
+```
 private static final String url = "jdbc:mysql://localhost:3306/banking_system";
 private static final String username = "root";
 private static final String password = "your_password";
+```
+### 4️⃣ Run
 
-4️⃣ Run
+Simply run: ```BankingApp.java```
 
-Simply run:
+## 📬 Screenshots
 
-BankingApp.java
+<img width="920"  alt="image" src="https://github.com/user-attachments/assets/7f5eb744-e31e-4a0d-8fe4-a6d6fddd75e6" />
+<img width="920" alt="image" src="https://github.com/user-attachments/assets/d911c663-cf6f-4016-b973-8b9a6207ad93" />
+<img width="920"  alt="image" src="https://github.com/user-attachments/assets/8d5ac127-a018-49ec-9cb8-edf8d4c63537" />
 
-📬 Screenshots
-
-(You can add later using)
-
-![Screenshot](screenshots/demo.png)
-
-📄 License
+## 📄 License
 
 This project is licensed under the MIT License.
+
+## 👤 Author
+
+Moumoni Bera
